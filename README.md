@@ -9,89 +9,154 @@ Then they can buy and sale NFT on this platform. This is a backend of the Dapp.
 
   This smart contract are used to mint the NFTs.
 
-  #### Functions
+  ### Functions
 
-  mint
+  - Function-name : mint
 
-  ```bash
-      tokenURI(string)
-      _royality(uint256)
+    arguments
 
-  ```
-
-  burn
-
-  ```bash
-      tokenId(uint256)
-
-  ```
-
-  approve
-
-  ```bash
-      to(address)
-      tokenId(uint256)
-  ```
-
-  safeTransferFrom
-
-  ```bash
-      from(address)
-      to(address)
-      tokenId(uint256)
-
-  ```
-
-  safeTransferFrom (with extra args)
-
-  ```bash
-      from(address)
-      to(address)
-      tokenId(uint256)
-     _data(bytes)
-  ```
-
-  transferFrom
-
-  ```bash
-      from(address)
-      to(address)
-      tokenId(uint256)
-
-  ```
-
-  setApprovalForAll
-
-  ```bash
-     to (address)
-
-     approved(bool)
-
-  ```
-
-  setContractUri
-
-  ```bash
-     contractURI(string)
-
-  ```
-
-  setTokenURIPrefix
-
-  ```bash
-     tokenURIPrefix(string)
-  ```
-
-
-    ```
-    transferOwnership
     ```bash
-      newOwner(address)
+        tokenURI(string)
+        _royality(uint256)
+
     ```
-    renounceOwnership
-    ```bash
-      None
-    ```
+
+        _return None
+
+        Description : This function are used to mint the NFTs with the given parameters.
+
+  - Function-name : burn
+
+    arguments
+
+  ```bash
+      tokenId(uint256)
+
+  ```
+
+         _return None
+        Description : This function are used to burn the NFT, need a token id as argument.
+
+* Function-name : approve
+
+  arguments
+
+```bash
+    to(address)
+    tokenId(uint256)
+```
+
+        _return None
+        Description : This function are used to Approve the third person to spend NFT token on behalf of owner, need a token id and to address as argument.
+
+- Function-name : safeTransferFrom
+
+  arguments
+
+```bash
+    from(address)
+    to(address)
+    tokenId(uint256)
+
+```
+
+    _return None
+    Description : This function are used to  Transfer NFT token , need a token id from and to address as argument.This function can call owner or approved address.
+
+- Function-name : safeTransferFrom (with extra args)
+
+  arguments
+
+```bash
+    from(address)
+    to(address)
+    tokenId(uint256)
+   _data(bytes)
+```
+
+        _return None
+        Description :
+        This function are used to  Transfer NFT token , need a token id from and to address as argument it also take optional data argument(need 0x as arg)  .This function can call owner or approved address
+
+- Function-name : transferFrom
+
+  arguments
+
+```bash
+    from(address)
+    to(address)
+    tokenId(uint256)
+
+```
+
+        _return None
+        Description :This function are used to  Transfer NFT token , need a token id from and to address as argument.This function can call owner or approved address.
+
+- Function-name : setApprovalForAll
+
+  arguments
+
+```bash
+   to (address)
+
+   approved(bool)
+
+```
+
+        _return None
+
+        Description : This function are used to Approve the third person to spend ALL NFT token on behalf of owner, need a token id and to to address as argument.
+
+- Function-name : setContractUri
+
+  arguments
+
+```bash
+   contractURI(string)
+
+```
+
+        _return None
+
+        Description :
+        Description : This function are used to Set Contract uri , need a string uri  as argument. only owner can call this function.
+
+- Function-name : setTokenURIPrefix
+
+  arguments
+
+```bash
+   tokenURIPrefix(string)
+```
+
+        _return None
+
+        Description : This function are used to Set token uri prefix, need a string uri prefix as argument. only owner can call this function.
+
+- Function-name : transferOwnership
+
+  arguments
+
+  ```bash
+    newOwner(address)
+  ```
+
+        _return None
+
+        Description :
+        Description : This function are used to Transfer Ownership, need a address of new owner  as argument. only owner can call this function.
+
+- Function-name : renounceOwnership
+
+  arguments
+
+  ```bash
+    None
+  ```
+
+        _return None
+
+        Description :  This function are used to Renounce Ownership,  only owner can call this function.
 
 ###### Read only functions
 
@@ -103,7 +168,9 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   #### Functions
 
-  buy
+  - Function-name : buy
+
+  arguments
 
   ```bash
       buy payableAmount (ether)
@@ -112,7 +179,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  bid
+        _return None
+
+        Description :  This function are used to Buy NFT Token which is on sale , need tokenID , NFT contract address or payable amount greater than sale amount.
+
+  - Function-name : bid
+
+  arguments
 
   ```bash
 
@@ -122,7 +195,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  putOnSale
+        _return None
+
+        Description :  This function are used to Bid NFT Token which is on sale , need tokenID , NFT contract address or payable amount greater than sale  current bid amount.
+
+  - Function-name : putOnSale
+
+  arguments
 
   ```bash
       tokenID (uint256)
@@ -134,7 +213,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  putOffSale
+        _return None
+
+        Description :  This function are used to Put NFT Token  on sale , need tokenID , NFT contract address _auctionType , start price if  2nd type _auctionType ,buy price if 1st type _auctionType, duration, as argument.
+
+  - Function-name : putOffSale
+
+  arguments
 
   ```bash
       tokenID (uint256)
@@ -142,64 +227,113 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  collect
+        _return None
+
+        Description :  This function are used to Put off NFT Token which is on sale , need tokenID , NFT contract address as argument.
+
+  - Function-name : collect
+
+  arguments
 
   ```bash
       tokenID (uint256)
       _mintableToken (address)
   ```
 
-  setBrokrage
+        _return None
+
+        Description :  This function are used to collect NFT Token which is on sale time is over , need tokenID , NFT contract address as argument.
+
+  - Function-name : setBrokerage
+
+  arguments
 
   ```bash
     _brokerage (uint16)
 
   ```
 
-  updatePrice
+        _return None
 
-  ```bash
-    tokenID (uint256)
-   _mintableToken (address)
-   _newPrice (uint256)
-  ```
+        Description :  This function are used to Set Brokerage on NFTs which comes on sale , brokerage amount as argument only admin can call this function.
 
-  withdraw
+- Function-name : updatePrice
 
-  ```bash
-     None
+arguments
 
-  ```
+```bash
+  tokenID (uint256)
+ _mintableToken (address)
+ _newPrice (uint256)
+```
 
-  onERC721Recived
+        _return None
 
-  ```bash
-    address
-    address
-    uint256
-    bytes
-  ```
+        Description :  This function are used to Update NFT Token  on sale currrent price , need tokenID , NFT contract address or new amount (only non bided on sale price update).
+
+- Function-name : withdraw
+
+arguments
+
+```bash
+   None
+
+```
+
+        _return None
+
+        Description :  This function are used to withdraw the amount on contract by admin account.
+
+- Function-name : onERC721Received
+
+arguments
+
+```bash
+  address
+  address
+  uint256
+  bytes
+```
+
+        _return None
+
+        Description :  This function onERC721Received check weather the contract is able to send nft token functions.
 
 #### Read only functions
 
 Checkout contract read only functions [Here](https://rinkeby.etherscan.io/address/0xf4A6C89e790f6E218808AE162279fb9180e76437#readContract)
 
 - #### BorkerV2 smart contract[Link](https://rinkeby.etherscan.io/address/0x6A341599E362869cb87800fb0a8F3087cBF3A97f#writeContract) :
+
   This smart contract are used to buy and sell mintable NFTs with native currency and with ECR20 Tokens.
 
-addERC20TokenPayment
+- Function-name : addERC20TokenPayment
+
+  arguments
 
 ```bash
     _erc20Token (address)
 ```
 
-removeERC20TokenPayment
+        _return None
+
+        Description : This function are use to add ERC20TokenPayment support for particular erc20 token in broker. only owner can call this function.
+
+- Function-name : removeERC20TokenPayment
+
+  arguments
 
 ```bash
     _erc20Token (address)
 ```
 
-buy
+        _return None
+
+        Description :  This function use to remove ERC20TokenPayment support  from broker.Only owner can call this function.
+
+- Function-name : buy
+
+  arguments
 
 ```bash
     buy payableAmount (ether)
@@ -208,7 +342,13 @@ buy
 
 ```
 
-bid
+        _return None
+
+        Description :  This function are used to Buy NFT Token which is on sale , need tokenID , NFT contract address or payable amount greater than sale amount.
+
+- Function-name : bid
+
+  arguments
 
 ```bash
 
@@ -219,7 +359,13 @@ bid
 
 ```
 
-putOnSale
+        _return None
+
+        Description :  This function are used to Bid NFT Token which is on sale , need tokenID , NFT contract address or payable amount greater than sale amount.
+
+- Function-name : putOnSale
+
+  arguments
 
 ```bash
     tokenID (uint256)
@@ -233,7 +379,13 @@ putOnSale
 
 ```
 
-putOffSale
+        _return None
+
+        Description :  This function are used to Put NFT Token  on sale , need tokenID , NFT contract address _auctionType , start price if  2nd type _auctionType ,buy price if 1st type _auctionType, duration, as argument.
+
+- Function-name : putOffSale
+
+  arguments
 
 ```bash
     tokenID (uint256)
@@ -241,27 +393,51 @@ putOffSale
 
 ```
 
-collect
+        _return None
+
+        Description : This function are used to Put off NFT Token which is on sale , need tokenID , NFT contract address as argument.
+
+- Function-name : collect
+
+  arguments
 
 ```bash
     tokenID (uint256)
     _mintableToken (address)
 ```
 
-setBrokrage
+        _return None
+
+        Description :   This function are used to collect NFT Token which is on sale time is over , need tokenID , NFT contract address as argument.
+
+- Function-name : setBrokerage
+
+  arguments
 
 ```bash
   _brokerage (uint16)
 
 ```
 
-setUpdatedClosingTime
+        _return None
+
+        Description :  This function are used to Set Brokerage on NFTs which comes on sale , brokerage amount as argument only admin can call this function.
+
+- Function-name : setUpdatedClosingTime
+
+  arguments
 
 ```bash
   _updateTime (uint256)
 ```
 
-updatePrice
+        _return None
+
+        Description :  This function used by admin to  update closing time of auction, when new user bid on auction the auction closing time extended by this update time .
+
+- Function-name : updatePrice
+
+  arguments
 
 ```bash
   tokenID (uint256)
@@ -270,20 +446,38 @@ updatePrice
  _erc20Token (address)
 ```
 
-withdraw
+        _return None
+
+        Description :  This function are used to Update NFT Token  on sale currrent price , need tokenID , NFT contract address or new amount (only non bided on sale price update).
+
+- Function-name : withdraw
+
+  arguments
 
 ```bash
    None
 
 ```
 
-withdrawERC20
+        _return None
+
+        Description :  This function are used to withdraw the amount on contract by admin account.
+
+- Function-name : withdrawERC20
+
+  arguments
 
 ```bash
   _erc20Token (address)
 ```
 
-onERC721Recived
+        _return None
+
+        Description :  This function are used to withdraw erc20 balance amount on contract by admin account,need erc20Token contract address as argument . only owner can call this function.
+
+- Function-name : onERC721Recived
+
+  arguments
 
 ```bash
   address
@@ -292,11 +486,21 @@ onERC721Recived
   bytes
 ```
 
-transferOwnership
+        _return None
+
+        Description :  This function onERC721Received check weather the contract is able to send nft token functions.
+
+- Function-name : transferOwnership
+
+  arguments
 
 ```bash
   newOwner(address)
 ```
+
+        _return None
+
+        Description :  This are use to transfer ownership  the contract form current owner to new owner, Only admin can call this function.
 
 #### Read only functions
 
@@ -306,19 +510,33 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   This smart contract are used to manage NFT market place list of authorized admins.
 
-  addAdmin
+  - Function-name : addAdmin
+
+  arguments
 
   ```bash
       admin (address)
   ```
 
-  removeAdmin
+        _return None
+
+        Description :  This function are used to add admin in admin manager to give right access this contract.
+
+  - Function-name : removeAdmin
+
+  arguments
 
   ```bash
       admin (address)
   ```
 
-  approve
+        _return None
+
+        Description :  This function are used to remove admin in adminManager contract.
+
+  - Function-name : approve
+
+  arguments
 
   ```bash
       _erc20 (address)
@@ -326,7 +544,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
       value (uint256)
   ```
 
-  buy
+        _return None
+
+        Description : This function are used to Approve the third person to spend  token on behalf of owner, need a erc20 address ,token amount and spender address as argument.
+
+  - Function-name : buy
+
+  arguments
 
   ```bash
       buy payableAmount (ether)
@@ -335,7 +559,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  bid
+        _return None
+
+        Description :  This function are used to Buy NFT Token which is on sale , need tokenID , NFT contract address or payable amount greater than sale amount.
+
+  - Function-name : bid
+
+  arguments
 
   ```bash
       bid payableAmount (ether)
@@ -345,7 +575,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  burnNFT
+        _return None
+
+        Description :  This function are used to Bid NFT Token which is on sale , need tokenID , NFT contract address or payable amount greater than sale amount.
+
+  - Function-name : burnNFT
+
+  arguments
 
   ```bash
       collection(address)
@@ -353,7 +589,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  putOnSale
+        _return None
+
+        Description : This function are used to Burn NFT Token in NFT contract address of NFT contract and token id as argument .
+
+  - Function-name : putOnSale
+
+  arguments
 
   ```bash
       tokenID (uint256)
@@ -367,7 +609,13 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  putOffSale
+        _return None
+
+        Description :  This function are used to Put NFT Token  on sale , need tokenID , NFT contract address _auctionType , start price if  2nd type _auctionType ,buy price if 1st type _auctionType, duration, as argument.
+
+  - Function-name : putOffSale
+
+  arguments
 
   ```bash
       tokenID (uint256)
@@ -375,21 +623,39 @@ Checkout contract read only functions [Here](https://rinkeby.etherscan.io/addres
 
   ```
 
-  collect
+        _return None
+
+        Description :   This function are used to Put off NFT Token which is on sale , need tokenID , NFT contract address as argument.
+
+  - Function-name : collect
+
+  arguments
 
   ```bash
       tokenID (uint256)
       _mintableToken (address)
   ```
 
-  setBrokerAddress
+        _return None
+
+        Description :  This function are used to collect NFT Token which is on sale time is over , need tokenID , NFT contract address as argument.
+
+  - Function-name : setBrokerAddress
+
+  arguments
 
   ```bash
     _broker (address)
 
   ```
 
-updatePrice
+        _return None
+
+        Description :  This function use to setBrokerAddress in admin manager to manage the contract of broker .
+
+- Function-name : updatePrice
+
+  arguments
 
 ```bash
   tokenID (uint256)
@@ -398,20 +664,38 @@ updatePrice
  _erc20Token (address)
 ```
 
-withdraw
+        _return None
+
+        Description : This function are used to Update NFT Token  on sale currrent price , need tokenID , NFT contract address or new amount (only non bided on sale price update).
+
+- Function-name : withdraw
+
+  arguments
 
 ```bash
    None
 
 ```
 
-withdrawERC20
+        _return None
+
+        Description :  This function are used to withdraw the amount on contract by admin account.
+
+- Function-name : withdrawERC20
+
+  arguments
 
 ```bash
   _erc20Token (address)
 ```
 
-onERC721Received
+        _return None
+
+        Description :  This function are used to withdraw erc20 balance amount on contract by admin account,need erc20Token contract address as argument . only owner can call this function.
+
+- Function-name : onERC721Received
+
+  arguments
 
 ```bash
   address
@@ -420,19 +704,37 @@ onERC721Received
   bytes
 ```
 
-transferOwnership
+        _return None
+
+        Description :  This function onERC721Received check weather the contract is able to send nft token functions.
+
+- Function-name : transferOwnership
+
+  arguments
 
 ```bash
   newOwner(address)
 ```
 
-renounceOwnership
+        _return None
+
+        Description :  This are use to transfer ownership  the contract form current owner to new owner, Only admin can call this function.
+
+- Function-name : renounceOwnership
+
+  arguments
 
 ```bash
   None
 ```
 
-decreaseAllowance
+        _return None
+
+        Description : This function are used to Renounce Ownership,  only owner can call this function.
+
+- Function-name : decreaseAllowance
+
+  arguments
 
 ```bash
     _erc20 (address)
@@ -440,7 +742,13 @@ decreaseAllowance
     subtractedValue (uint256)
 ```
 
-decreaseApproval
+        _return None
+
+        Description :  This are use to decrease Allowance of erc20 token amount of spender .
+
+- Function-name : decreaseApproval
+
+  arguments
 
 ```bash
     _erc20 (address)
@@ -448,7 +756,13 @@ decreaseApproval
     subtractedValue (uint256)
 ```
 
-increaseAllowance
+        _return None
+
+        Description :
+
+- Function-name : increaseAllowance
+
+  arguments
 
 ```bash
     _erc20 (address)
@@ -456,7 +770,13 @@ increaseAllowance
     addedValue (uint256)
 ```
 
-increaseApproval
+        _return None
+
+        Description : This are use to increase Allowance of erc20 token amount of spender .
+
+- Function-name : increaseApproval
+
+  arguments
 
 ```bash
     _erc20 (address)
@@ -464,7 +784,13 @@ increaseApproval
     addedValue (uint256)
 ```
 
-transfer
+        _return None
+
+        Description :
+
+- Function-name : transfer
+
+  arguments
 
 ```bash
     _erc20 (address)
@@ -473,7 +799,13 @@ transfer
 
 ```
 
-transferFrom
+        _return None
+
+        Description :  This are use to transfer tokens from owner to receiver account by owner .
+
+- Function-name : transferFrom
+
+  arguments
 
 ```bash
     _erc20 (address)
@@ -483,7 +815,13 @@ transferFrom
 
 ```
 
-erc721Approve
+        _return None
+
+        Description :  This are use to transfer tokens from owner to receiver account by spender.
+
+- Function-name : erc721Approve
+
+  arguments
 
 ```bash
   _ERC721Address(address)
@@ -492,14 +830,26 @@ erc721Approve
 
 ```
 
-erc721Burn
+        _return None
+
+        Description : This are use to Approve spender to spend   his NFTs behalf of him.
+
+- Function-name : erc721Burn
+
+  arguments
 
 ```bash
   _ERC721Address (address)
   tokenId (uint256)
 ```
 
-erc721Mint
+        _return None
+
+        Description :  This are use to burn NFTs on mintable contract.
+
+- Function-name : erc721Mint
+
+  arguments
 
 ```bash
   _ERC721Address (address)
@@ -507,7 +857,13 @@ erc721Mint
   _royalty (uint256)
 ```
 
-erc721SafeTransferFrom(with extra args)
+        _return None
+
+        Description :  This are use to mint new NFTs on mintable contract.
+
+- Function-name : erc721SafeTransferFrom(with extra args)
+
+  arguments
 
 ```bash
   _ERC721Address (address)
@@ -517,7 +873,13 @@ erc721SafeTransferFrom(with extra args)
   _data (bytes)
 ```
 
-erc721SafeTransferFrom
+        _return None
+
+        Description :  This function are used to  Transfer NFT token , need a token id from and to address as argument it also take optional data argument(need 0x as arg)  .This function can call owner or approved address.
+
+- Function-name : erc721SafeTransferFrom
+
+  arguments
 
 ```bash
   _ERC721Address (address)
@@ -527,7 +889,13 @@ erc721SafeTransferFrom
 
 ```
 
-erc721TransferFrom
+        _return None
+
+        Description : This function are used to  Transfer NFT token , need a token id from and to address as argument.This function can call owner or approved address.
+
+- Function-name : erc721TransferFrom
+
+  arguments
 
 ```bash
   _ERC721Address (address)
@@ -536,58 +904,12 @@ erc721TransferFrom
   tokenId (uint256)
 
 ```
+
+        _return None
+
+        Description : This function are used to  Transfer NFT token , need a token id from and to address as argument.This function can call owner or approved address.
 
 #### Read only functions
 
-adminExist
-
-```bash
-    _sender (address)
-```
-
-admins
-
-```bash
-    (uint256)
-```
-
-getAdmin
-
-```bash
-    none
-```
-
-getBrokerAddress
-
-```bash
-    none
-```
-
-isOwner
-
-```bash
-    none
-```
-
-owner
-
-```bash
-    none
-```
-
-- #### CollectionFactory smart contract :
-  This contract create a collection of NFT contracts
-- #### HasSecondarySaleFees smart contract :
-- #### KlaytnGreeter smart contract :
-- #### WhitelistableCollection smart contract :
-
-## Installation
-
-To Installation this project run "npm i" in main directory
-of project to install all dependency.
-
-```bash
-    npm i
-    npm start
-```
+Checkout contract read only functions [Here](https://rinkeby.etherscan.io/address/0xDF795FD3AD283057e6f8B05E027dABF60A229cD7#readContract)
 
